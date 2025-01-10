@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button"
 
 export default function Navbar() {
   return (
-    <header className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
+    <header className="w-full border-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 items-center ">
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2 text-white">
             <span className="font-bold">Doc-O-Drop</span>

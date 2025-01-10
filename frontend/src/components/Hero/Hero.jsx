@@ -5,9 +5,9 @@ import { Link } from "react-router-dom"
 
 export default function HeroSection() {
   return (
-    <div className="relative">
-      <div className="absolute inset-0 bg-slate-950"></div>
-      <div className="container relative grid min-h-[calc(80vh-3.5rem)] grid-cols-1 items-center gap-15 lg:grid-cols-2">
+    <div className="relative py-24">
+      <div className="absolute inset-0 bg-slate-950 "></div>
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative grid min-h-[calc(80vh-3.5rem)] grid-cols-1 items-center gap-15 lg:grid-cols-2">
         <div className="space-y-8">
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
