@@ -10,6 +10,7 @@ import './App.css'
 import { MyPlugin } from './components/test/test.jsx'
 import WebcamTest from './pages/Yoga/camera.jsx'
 import YogaPoseTrainer from './components/test/Nutrition.jsx'
+import NutritionAi from './pages/Nutrition/Nutrition.jsx'
 
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
         <Route path='/about' element={<About />} />
         <Route path='/tutorials' element={<Tutorials />} />
         <Route path='/camera' element={<WebcamTest></WebcamTest>} />
-        <Route path="/nutrition" element={<YogaPoseTrainer></YogaPoseTrainer>}/>
+        <Route path="/nutrition" element={<NutritionAi/>}/>
         
         <Route path='/test' element={<div className="min-h-screen bg-neutral-900 text-white"><MyPlugin/>
           </div>} />

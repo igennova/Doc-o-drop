@@ -7,7 +7,7 @@ import { CalendarDays, SpaceIcon as Yoga } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroSection from '@/components/Hero/Hero';
 import FancyNavbar from '@/components/Hero/Navbar';
-import doctor from "@/components/PoseStart/hero.png"
+// import doctor from "@/components/PoseStart/hero.png"
 import Page from '../Yoga1/MainYoga';
 import PageDoctor from '../Doctor/Doctor';
 
