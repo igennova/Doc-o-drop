@@ -214,7 +214,7 @@ export default function Yoga() {
               <canvas
                 ref={canvasRef}
                 width="640"
-                height="480"
+                height="580"
                 className="absolute inset-0 w-full h-full"
               />
             </div>

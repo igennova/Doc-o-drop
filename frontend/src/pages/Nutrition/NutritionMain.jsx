@@ -1,11 +1,11 @@
 import { Activity, BarChart3, Camera } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import FeatureCard  from '@/pages/Yoga1/YogaCard'
-import  YogaDisplay  from '@/pages/Yoga1/YogaDisplay'
+import NutritionDisplay from './NutririonDisplay'
 import { Link } from 'react-router-dom'
 
 
-export default function Page() {
+export default function NutritionPage() {
   return (
     <div className="min-h=[50]-screen bg-gray-900">
    
@@ -14,37 +14,37 @@ export default function Page() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold text-white">
-                AI-Powered Yoga Training
+              AI-Powered Nutrition Analysis
               </h1>
               <h2 className="text-3xl font-semibold text-blue-400">
-                Just Like Having a Personal Instructor
+              Just Like Having a Personal Nutritionist
               </h2>
             </div>
             
             <div className="space-y-6">
               <FeatureCard
                 icon={<Camera className="w-6 h-6 text-blue-400" />}
-                title="Real-time Posture Analysis"
-                description="Advanced AI monitors and corrects your yoga poses in real-time for perfect form and maximum benefits."
+                title="Real-time Food Analysis"
+                description="Advanced AI identifies food items and provides detailed nutritional information instantly."
               />
               <FeatureCard
                 icon={<Activity className="w-6 h-6 text-blue-400" />}
-                title="Personalized Routines"
-                description="Custom yoga sequences adapted to your skill level, goals, and progress."
+                title="Dietary Recommendations"
+                description="Get personalized meal suggestions based on your nutritional goals and preferences."
               />
               <FeatureCard
                 icon={<BarChart3 className="w-6 h-6 text-blue-400" />}
-                title="Progress Tracking"
-                description="Detailed analytics and progress reports to keep you motivated and improving."
+                title="Nutrition Tracking"
+                description="Track your daily intake and monitor your progress towards your health goals"
               />
             </div>
 
             <Button size="lg" className="bg-blue-500 hover:bg-blue-600">
-              <Link to= "/start">Start Your AI Yoga Journey</Link>
+              <Link to= "/start">Start Analysis</Link>
             </Button>
           </div>
 
-          <YogaDisplay />
+          <NutritionDisplay />
         </div>
       </main>
     </div>

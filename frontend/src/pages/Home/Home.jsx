@@ -10,6 +10,7 @@ import FancyNavbar from '@/components/Hero/Navbar';
 // import doctor from "@/components/PoseStart/hero.png"
 import Page from '../Yoga1/MainYoga';
 import PageDoctor from '../Doctor/Doctor';
+import NutritionPage from '../Nutrition/NutritionMain';
 
 export default function Home() {
  
@@ -23,8 +24,9 @@ export default function Home() {
       <FancyNavbar />
       <HeroSection />
       <Page/>
+      <NutritionPage/>
       
-          
+    
       <PageDoctor/>
       </div>
     </>
