@@ -93,6 +93,52 @@ Calories: [X]
     res.status(500).send(`Failed to analyze the image. Error: ${err.message}`);
   }
 });
+app.post('/generate-meal-plan', async (req, res) => {
+  const { preferences, restrictions, calories, dietType } = req.body;
+
+  if (!preferences || !restrictions || !calories || !dietType) {
+    return res.status(400).send('Missing required parameters.');
+  }
+
+  try {
+    const prompt = `
+    You are the best meal planer out there so only give meal plan and nothing else
+      Generate a weekly meal plan (Sunday to Monday) in a table-like format based on the following:
+      - Preferred meals: ${preferences}
+      - Dietary restrictions: ${restrictions}
+      - Caloric intake: ${calories}
+      - Diet type: ${dietType}
+
+      Output the meal plan as follows:
+
+     
+      | Day      | Meal 1      | Meal 2      | Meal 3      |
+      |----------|-------------|-------------|-------------|
+      | Sunday   | [Meal 1]    | [Meal 2]    | [Meal 3]    |
+      | Monday   | [Meal 1]    | [Meal 2]    | [Meal 3]    |
+      | Tuesday  | [Meal 1]    | [Meal 2]    | [Meal 3]    |
+      | Wednesday| [Meal 1]    | [Meal 2]    | [Meal 3]    |
+      | Thursday | [Meal 1]    | [Meal 2]    | [Meal 3]    |
+      | Friday   | [Meal 1]    | [Meal 2]    | [Meal 3]    |
+      | Saturday | [Meal 1]    | [Meal 2]    | [Meal 3]    |
+    `;
+
+    // Send the request to the AI model
+    const result = await model.generateContent([prompt]);
+
+    // Check the response
+    if (!result || !result.response || !result.response.text) {
+      throw new Error('Invalid response from the AI model.');
+    }
+
+    const mealPlan = result.response.text ? result.response.text() : result.response.text;
+    res.json({ mealPlan });
+
+  } catch (err) {
+    console.error('Error generating meal plan:', err.message);
+    res.status(500).send(`Failed to generate the meal plan. Error: ${err.message}`);
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

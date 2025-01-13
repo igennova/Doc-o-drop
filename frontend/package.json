@@ -19,6 +19,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.17.0",
     "lucide-react": "^0.469.0",
+    "mermaid": "^11.4.1",
     "react": "^19.0.0",
     "react-awesome-reveal": "^4.3.1",
     "react-dom": "^19.0.0",
