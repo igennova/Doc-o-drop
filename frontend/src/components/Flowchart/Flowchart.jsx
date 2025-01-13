@@ -1,5 +1,13 @@
+'use client'
+
 import React, { useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Loader2 } from 'lucide-react';
 
 const MealPlanGenerator = () => {
   const [preferences, setPreferences] = useState("");
@@ -29,95 +37,177 @@ const MealPlanGenerator = () => {
     }
   };
 
-  const renderMealPlanTable = () => {
+  const renderMealPlanCards = () => {
     if (!mealPlan) return null;
 
     const lines = mealPlan.split("\n");
     const headers = lines[0].split("|").map(header => header.trim());
     const rows = lines.slice(1).map(line => line.split("|").map(cell => cell.trim()));
 
-    return (
-      <table className="table-auto border-collapse w-full mt-6 shadow-lg border border-gray-300">
-        <thead>
-          <tr className="bg-gray-200">
-            {headers.map((header, index) => (
-              <th key={index} className="px-4 py-2 text-left font-semibold text-gray-700">{header}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-              {row.map((cell, cellIndex) => (
-                <td key={cellIndex} className="px-4 py-2 text-gray-600">{cell}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    );
+    const weeklyMeals = rows.reduce((acc, row) => {
+      const week = row[0];
+      if (!acc[week]) {
+        acc[week] = [];
+      }
+      acc[week].push(row);
+      return acc;
+    }, {});
+
+    return Object.entries(weeklyMeals).map(([week, meals], weekIndex) => (
+      <motion.div
+        key={week}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: weekIndex * 0.1 }}
+      >
+        <Card className="mb-6 bg-gray-700 text-gray-100">
+          <CardHeader>
+            <CardTitle>{week}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <table className="w-full">
+              <thead>
+                <tr>
+                  {headers.slice(1).map((header, index) => (
+                    <th
+                      key={index}
+                      className="px-2 py-1 text-left font-semibold text-sm text-gray-300"
+                    >
+                      {header}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {meals.map((meal, mealIndex) => (
+                  <tr key={mealIndex} className="border-t border-gray-600">
+                    {meal.slice(1).map((cell, cellIndex) => (
+                      <td key={cellIndex} className="px-2 py-2 text-sm text-gray-200">
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </CardContent>
+        </Card>
+      </motion.div>
+    ));
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">Generate Your Weekly Meal Plan</h1>
-      <div className="space-y-4">
-        <div>
-          <label className="block text-gray-600">Meal Preferences:</label>
-          <input
-            type="text"
-            value={preferences}
-            onChange={(e) => setPreferences(e.target.value)}
-            placeholder="e.g., Vegan, Vegetarian, etc."
-            className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-        <div>
-          <label className="block text-gray-600">Dietary Restrictions:</label>
-          <input
-            type="text"
-            value={restrictions}
-            onChange={(e) => setRestrictions(e.target.value)}
-            placeholder="e.g., Gluten-free, Nut allergy, etc."
-            className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-        <div>
-          <label className="block text-gray-600">Caloric Intake:</label>
-          <input
-            type="number"
-            value={calories}
-            onChange={(e) => setCalories(e.target.value)}
-            placeholder="e.g., 2000"
-            className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-        <div>
-          <label className="block text-gray-600">Diet Type:</label>
-          <input
-            type="text"
-            value={dietType}
-            onChange={(e) => setDietType(e.target.value)}
-            placeholder="e.g., Keto, Mediterranean, etc."
-            className="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-        <button
-          onClick={handleGenerateMealPlan}
-          disabled={loading}
-          className="w-full py-2 mt-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:bg-gray-400"
-        >
-          {loading ? "Generating..." : "Generate Meal Plan"}
-        </button>
-      </div>
+    <div className="bg-gray-800 min-h-screen text-gray-100">
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-4xl font-bold text-center mb-8"
+      >
+        Generate Your Weekly Meal Plan
+      </motion.h1>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="max-w-4xl mx-auto p-6"
+      >
+        <Card className="bg-gray-700 text-gray-100">
+          <CardContent className="space-y-4 pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="preferences" className="text-gray-300">
+                  Meal Preferences
+                </Label>
+                <Input
+                  id="preferences"
+                  value={preferences}
+                  onChange={(e) => setPreferences(e.target.value)}
+                  placeholder="e.g., Vegan, Vegetarian, etc."
+                  className="bg-gray-600 text-gray-100 border-gray-500"
+                />
+              </div>
+              <div>
+                <Label htmlFor="restrictions" className="text-gray-300">
+                  Dietary Restrictions
+                </Label>
+                <Input
+                  id="restrictions"
+                  value={restrictions}
+                  onChange={(e) => setRestrictions(e.target.value)}
+                  placeholder="e.g., Gluten-free, Nut allergy, etc."
+                  className="bg-gray-600 text-gray-100 border-gray-500"
+                />
+              </div>
+              <div>
+                <Label htmlFor="calories" className="text-gray-300">
+                  Caloric Intake
+                </Label>
+                <Input
+                  id="calories"
+                  type="number"
+                  value={calories}
+                  onChange={(e) => setCalories(e.target.value)}
+                  placeholder="e.g., 2000"
+                  className="bg-gray-600 text-gray-100 border-gray-500"
+                />
+              </div>
+              <div>
+                <Label htmlFor="dietType" className="text-gray-300">
+                  Diet Type
+                </Label>
+                <Input
+                  id="dietType"
+                  value={dietType}
+                  onChange={(e) => setDietType(e.target.value)}
+                  placeholder="e.g., Keto, Mediterranean, etc."
+                  className="bg-gray-600 text-gray-100 border-gray-500"
+                />
+              </div>
+            </div>
+            <Button
+              onClick={handleGenerateMealPlan}
+              disabled={loading}
+              className="w-full bg-indigo-500 hover:bg-indigo-600 text-gray-100"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Generating...
+                </>
+              ) : (
+                "Generate Meal Plan"
+              )}
+            </Button>
+          </CardContent>
+        </Card>
+      </motion.div>
 
-      {error && <p className="mt-4 text-center text-red-600">{error}</p>}
+      {error && (
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="mt-4 text-center text-red-400"
+        >
+          {error}
+        </motion.p>
+      )}
 
       {mealPlan && (
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">Generated Meal Plan:</h2>
-          {renderMealPlanTable()}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mt-8"
+        >
+          <h2 className="text-2xl font-semibold text-center mb-6">
+            Your Generated Meal Plan
+          </h2>
+          <div className="max-w-4xl mx-auto"> {/* Limit the width and center */}
+      {renderMealPlanCards()}
+    </div>
+        </motion.div>
       )}
     </div>
   );
