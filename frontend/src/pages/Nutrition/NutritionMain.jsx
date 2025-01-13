@@ -40,7 +40,7 @@ export default function NutritionPage() {
             </div>
 
             <Button size="lg" className="bg-blue-500 hover:bg-blue-600">
-              <Link to= "/start">Start Analysis</Link>
+              <Link to= "/nutrition">Start Analysis</Link>
             </Button>
           </div>
 
