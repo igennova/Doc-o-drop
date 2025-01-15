@@ -51,9 +51,9 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white bg-opacity-90 backdrop-blur-md shadow-sm">
       <div className="container mx-auto flex h-16 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
         <div className="mr-8 flex">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-blue-600">Doc-O-Drop</span>
-          </Link>
+          <a href="/" className="flex items-center space-x-2">
+            <span className="text-2xl font-bold text-blue-600">Fit Fusion</span>
+          </a>
         </div>
         <nav className="flex flex-1 items-center justify-between">
           <ul className="flex space-x-8 text-base font-medium">
@@ -88,7 +88,7 @@ const Navbar = () => {
                       className="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                     >
                       <Activity className="w-5 h-5 mr-2" />
-                      Yoga Experimental
+                      Specified Yoga
                       <ChevronDown className="w-4 h-4 ml-auto" />
                     </button>
                     {experimentalOpen && (
