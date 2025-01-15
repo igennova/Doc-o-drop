@@ -12,6 +12,7 @@ import WebcamTest from './pages/Yoga/camera.jsx'
 import YogaPoseTrainer from './components/test/Nutrition.jsx'
 import NutritionAi from './pages/Nutrition/Nutrition.jsx'
 import Flowchart from './components/Flowchart/Flowchart.jsx'
+import YogaListing from './pages/YogaListing/YogaListing.jsx'
 
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
     <BrowserRouter future={{ v7_startTransition: true }}>
     <Routes>
         <Route path='/' element={<Home />}/>
+        <Route path='/yoga' element={<YogaListing />} />
         <Route path='/start' element={<Yoga />} />
         <Route path='/about' element={<About />} />
         <Route path='/tutorials' element={<Tutorials />} />
