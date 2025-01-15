@@ -2,6 +2,7 @@ import { Calendar, Clock, Stethoscope } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import  {FeatureCard}  from './DoctorCard'
 import { AppointmentDisplay } from './DoctorDisplay'
+import { Link } from 'react-router-dom'
 
 
 export default function PageDoctor() {
@@ -12,7 +13,7 @@ export default function PageDoctor() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold text-white">
-                AI-Powered Doctor Appointments
+                AI-MEAL PLANNER
               </h1>
               <h2 className="text-3xl font-semibold text-blue-400">
                 Efficient Healthcare at Your Fingertips
@@ -38,7 +39,8 @@ export default function PageDoctor() {
             </div>
 
             <Button size="lg" className="bg-blue-500 hover:bg-blue-600">
-              Schedule Your Appointment
+              <Link to ="/flowchart" > Schedule Your Meal</Link>
+             
             </Button>
           </div>
 

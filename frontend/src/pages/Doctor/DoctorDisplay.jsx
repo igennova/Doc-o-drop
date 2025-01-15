@@ -6,7 +6,7 @@ export function AppointmentDisplay() {
       <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-[1px] rounded-2xl">
         <div className="bg-gray-900 rounded-2xl p-6 space-y-6">
           <div className="aspect-video bg-black/40 rounded-lg flex items-center justify-center">
-            <div className="text-blue-400 text-6xl">👨‍⚕️</div>
+            <div className="text-blue-400 text-6xl">📆</div>
           </div>
           <div className="space-y-2">
             <div className="flex justify-between items-center">
