@@ -22,7 +22,7 @@ const MealPlanGenerator = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.post("http://localhost:5000/generate-meal-plan", {
+      const response = await axios.post("https://doc-o-drop.onrender.com/generate-meal-plan", {
         preferences,
         restrictions,
         calories,

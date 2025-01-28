@@ -31,7 +31,7 @@ const NutritionAi = () => {
 
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/upload', formData, {
+      const response = await axios.post('https://doc-o-drop.onrender.com/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setNutritionInfo(response.data.nutritionInfo);
