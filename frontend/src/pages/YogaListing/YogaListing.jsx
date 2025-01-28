@@ -11,7 +11,7 @@ const yogaData = {
             hindiName: "पद्मासन",
             description: "Lotus Pose is the ultimate pose for meditation and mindfulness practices.",
             benefits: ["Calms mind", "Reduces anxiety", "Improves concentration", "Promotes inner peace"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/2.jpg",
             duration: "15-20 minutes",
             level: "Intermediate"
         },
@@ -20,7 +20,7 @@ const yogaData = {
             hindiName: "सुखासन",
             description: "Easy Pose provides a comfortable seated position for meditation and breathing exercises.",
             benefits: ["Reduces mental fatigue", "Improves posture", "Calms nervous system", "Enhances focus"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/4.jpg",
             duration: "10-15 minutes",
             level: "Beginner"
         },
@@ -29,7 +29,7 @@ const yogaData = {
             hindiName: "वज्रासन",
             description: "Diamond Pose aids in digestion and is perfect for meditation after meals.",
             benefits: ["Improves digestion", "Reduces anxiety", "Calms mind", "Strengthens concentration"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/1.jpg",
             duration: "10-20 minutes",
             level: "Beginner"
         },
@@ -38,7 +38,7 @@ const yogaData = {
             hindiName: "शवासन",
             description: "Corpse Pose is essential for deep relaxation and meditation.",
             benefits: ["Reduces stress", "Improves sleep", "Calms nervous system", "Promotes healing"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/3.jpg",
             duration: "10-15 minutes",
             level: "Beginner"
         }
@@ -49,7 +49,7 @@ const yogaData = {
             hindiName: "नावासन",
             description: "Boat Pose strengthens the deep core muscles while improving balance.",
             benefits: ["Strengthens abs", "Improves balance", "Tones lower back", "Enhances focus"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/10.jpg",
             duration: "5-10 minutes",
             level: "Intermediate"
         },
@@ -58,7 +58,7 @@ const yogaData = {
             hindiName: "धनुरासन",
             description: "Bow Pose deeply stretches the core while strengthening the back muscles.",
             benefits: ["Strengthens core", "Improves posture", "Stimulates organs", "Reduces stress"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/9.jpg",
             duration: "3-5 minutes",
             level: "Advanced"
         },
@@ -67,7 +67,7 @@ const yogaData = {
             hindiName: "चतुरंग दंडासन",
             description: "Four-Limbed Staff Pose builds core strength and upper body stability.",
             benefits: ["Builds strength", "Improves stability", "Tones arms", "Enhances core"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/11.jpg",
             duration: "2-4 minutes",
             level: "Advanced"
         },
@@ -76,7 +76,7 @@ const yogaData = {
             hindiName: "परिपूर्ण नावासन",
             description: "Full Boat Pose challenges core strength and balance.",
             benefits: ["Deep core workout", "Improves focus", "Builds stamina", "Enhances balance"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/10.jpg",
             duration: "3-5 minutes",
             level: "Intermediate"
         }
@@ -87,7 +87,7 @@ const yogaData = {
             hindiName: "उत्तानासन",
             description: "Standing Forward Bend stretches the entire back body.",
             benefits: ["Increases flexibility", "Calms mind", "Reduces stress", "Relieves tension"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/6.jpg",
             duration: "3-5 minutes",
             level: "Beginner"
         },
@@ -96,7 +96,7 @@ const yogaData = {
             hindiName: "कपोतासन",
             description: "Pigeon Pose opens hip flexors and stretches deep glutes.",
             benefits: ["Opens hips", "Releases tension", "Improves flexibility", "Calms mind"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/7.jpg",
             duration: "5-7 minutes",
             level: "Intermediate"
         },
@@ -105,7 +105,7 @@ const yogaData = {
             hindiName: "हनुमानासन",
             description: "Splits Pose demonstrates and builds ultimate flexibility.",
             benefits: ["Extreme flexibility", "Strengthens legs", "Opens hips", "Builds confidence"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/8.jpg",
             duration: "5-8 minutes",
             level: "Advanced"
         },
@@ -114,7 +114,7 @@ const yogaData = {
             hindiName: "उष्ट्रासन",
             description: "Camel Pose opens the entire front body and improves spinal flexibility.",
             benefits: ["Opens chest", "Improves posture", "Increases flexibility", "Energizes body"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/5.jpg",
             duration: "4-6 minutes",
             level: "Intermediate"
         }
@@ -125,7 +125,7 @@ const yogaData = {
             hindiName: "बकासन",
             description: "Crow Pose builds arm strength and improves balance.",
             benefits: ["Builds strength", "Improves balance", "Increases focus", "Builds confidence"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/12.jpg",
             duration: "2-4 minutes",
             level: "Advanced"
         },
@@ -134,7 +134,7 @@ const yogaData = {
             hindiName: "वृक्षासन",
             description: "Tree Pose improves balance and concentration.",
             benefits: ["Enhances balance", "Strengthens legs", "Improves focus", "Builds confidence"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/13.jpg",
             duration: "3-5 minutes",
             level: "Beginner"
         },
@@ -143,7 +143,7 @@ const yogaData = {
             hindiName: "गरुडासन",
             description: "Eagle Pose challenges balance while strengthening legs.",
             benefits: ["Improves balance", "Builds strength", "Enhances focus", "Opens joints"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/14.jpg",
             duration: "4-6 minutes",
             level: "Intermediate"
         },
@@ -152,7 +152,7 @@ const yogaData = {
             hindiName: "शीर्षासन",
             description: "Headstand is the king of all yoga poses.",
             benefits: ["Builds strength", "Improves balance", "Increases focus", "Boosts confidence"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/15.jpg",
             duration: "5-10 minutes",
             level: "Advanced"
         }
@@ -163,7 +163,7 @@ const yogaData = {
             hindiName: "प्राणायाम",
             description: "Breathing exercises to control and direct life force energy.",
             benefits: ["Improves breathing", "Reduces stress", "Increases energy", "Calms mind"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/1.jpg",
             duration: "10-15 minutes",
             level: "All Levels"
         },
@@ -172,7 +172,7 @@ const yogaData = {
             hindiName: "नाडी शोधन",
             description: "Alternate nostril breathing balances the nervous system.",
             benefits: ["Balances energy", "Reduces stress", "Improves focus", "Calms mind"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/1.jpg",
             duration: "5-10 minutes",
             level: "All Levels"
         },
@@ -181,7 +181,7 @@ const yogaData = {
             hindiName: "भस्त्रिका",
             description: "Bellows Breath energizes the body and mind.",
             benefits: ["Increases energy", "Improves focus", "Clears mind", "Boosts metabolism"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/1.jpg",
             duration: "3-5 minutes",
             level: "Intermediate"
         },
@@ -190,7 +190,7 @@ const yogaData = {
             hindiName: "कपालभाति",
             description: "Skull Shining Breath cleanses and energizes.",
             benefits: ["Cleanses system", "Increases energy", "Improves focus", "Reduces stress"],
-            image: "/placeholder.svg?height=200&width=300",
+            image: "/1.jpg",
             duration: "5-7 minutes",
             level: "Intermediate"
         }
@@ -255,7 +255,7 @@ const YogaListing = () => {
                                     <img
                                         src={yoga.image}
                                         alt={yoga.name}
-                                        className="w-full h-48 object-cover rounded-md mb-4"
+                                        className="w-full object-contain rounded-md mb-4"
                                     />
                                     <h2 className="text-xl font-semibold mb-2">{yoga.name}</h2>
                                     <h3 className="text-sm text-gray-500 mb-2">
