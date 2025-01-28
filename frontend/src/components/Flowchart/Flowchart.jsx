@@ -17,10 +17,19 @@ const MealPlanGenerator = () => {
   const [mealPlan, setMealPlan] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [formError, setFormError] = useState(""); // New state for form validation errors
 
   const handleGenerateMealPlan = async () => {
+    // Check if any field is empty
+    if (!preferences || !restrictions || !calories || !dietType) {
+      setFormError("All fields are required. If not applicable, type 'none'.");
+      return;
+    }
+
     setLoading(true);
     setError(null);
+    setFormError(""); // Clear any previous validation errors
+
     try {
       const response = await axios.post("https://doc-o-drop.onrender.com/generate-meal-plan", {
         preferences,
@@ -183,6 +192,19 @@ const MealPlanGenerator = () => {
         </Card>
       </motion.div>
 
+      {/* Show validation error */}
+      {formError && (
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="mt-4 text-center text-red-400"
+        >
+          {formError}
+        </motion.p>
+      )}
+
+      {/* Show API error */}
       {error && (
         <motion.p
           initial={{ opacity: 0 }}
@@ -204,9 +226,7 @@ const MealPlanGenerator = () => {
           <h2 className="text-2xl font-semibold text-center mb-6">
             Your Generated Meal Plan
           </h2>
-          <div className="max-w-4xl mx-auto"> {/* Limit the width and center */}
-      {renderMealPlanCards()}
-    </div>
+          <div className="max-w-4xl mx-auto"> {/* Limit the width and center */}{renderMealPlanCards()}</div>
         </motion.div>
       )}
     </div>
